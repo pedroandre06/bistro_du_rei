@@ -1,125 +1,237 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bistrô Du Rei Cozinha Caseira | Almoço self-service em Alcântara</title>
-<meta name="description" content="Almoço self-service com comida caseira em Alcântara, São Gonçalo - RJ.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bistrô Du Rei Cozinha Caseira | Almoço self-service em Alcântara, São Gonçalo</title>
+<meta name="description" content="Almoço self-service com comida caseira em Alcântara, São Gonçalo - RJ. De segunda a sábado, das 11h às 15h. R$ 20,00 a R$ 40,00 por pessoa. WhatsApp (21) 98327-8031.">
 <meta name="theme-color" content="#6b1a26">
-<meta property="og:title" content="Bistrô Du Rei Cozinha Caseira">
-<meta property="og:description" content="Almoço self-service com comida caseira em Alcântara, São Gonçalo - RJ.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Bistrô Du Rei Cozinha Caseira">
+<meta property="og:title" content="Bistrô Du Rei Cozinha Caseira | Almoço self-service em Alcântara">
+<meta property="og:description" content="Comida caseira no self-service, de segunda a sábado, das 11h às 15h, em Alcântara, São Gonçalo - RJ.">
 <meta property="og:image" content="images/restaurante/fachada-restaurante.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/young-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Dados estruturados para o Google. Se mudar telefone, preço ou horário, atualize aqui também. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Bistrô Du Rei Cozinha Caseira",
+  "description": "Almoço self-service com comida caseira em Alcântara, São Gonçalo - RJ.",
+  "telephone": "+5521983278031",
+  "priceRange": "R$20 - R$40",
+  "servesCuisine": ["Comida caseira", "Self-service"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "São Gonçalo",
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Restaurante+Bistro+Du+Rei+Cozinha+Caseira+Alcantara+Sao+Goncalo+RJ",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "11:00",
+      "closes": "15:00"
+    }
+  ]
+}
+</script>
+
 <style>
 @font-face { font-family: "Young Serif"; src: url("fonts/young-serif-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Figtree Variable"; src: url("fonts/figtree-latin-wght-normal.woff2") format("woff2"); font-weight: 300 900; font-display: swap; }
+
 :root {
   --vinho: #6b1a26;
   --vinho-fundo: #3d0e16;
   --ouro: #f0ae1b;
+  --ouro-claro: #ffc43d;
   --papel: #fbf9f8;
   --tom: #f3ecea;
+  --branco: #ffffff;
   --tinta: #2b1417;
-  --suave: #6a5559;
+  --suave: #55424a;
+  --linha: rgba(107, 26, 38, .16);
+  --zap: #1fa855;
+  --zap-escuro: #178a45;
   --serif: "Young Serif", Georgia, serif;
-  --sans: "Figtree Variable", "Figtree", system-ui, sans-serif;
+  --sans: "Figtree Variable", "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --raio: 14px;
+  --sombra: 0 1px 2px rgba(61, 14, 22, .08), 0 8px 24px rgba(61, 14, 22, .08);
+  --sombra-forte: 0 2px 4px rgba(61, 14, 22, .12), 0 16px 36px rgba(61, 14, 22, .16);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; font-family: var(--sans); color: var(--tinta); background: var(--papel); line-height: 1.6; font-size: 1.0625rem; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; margin: 0; }
-h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); color: var(--vinho); }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--sans); color: var(--tinta); background: var(--papel); line-height: 1.65; font-size: 1.0625rem; }
+img, video { max-width: 100%; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); color: var(--vinho); }
 h3 { font-size: 1.3rem; color: var(--vinho); }
 p { margin: 0 0 1rem; max-width: 62ch; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--ouro); outline-offset: 3px; }
+.contato :focus-visible, .topo :focus-visible, .rodape :focus-visible, .hero :focus-visible { outline-color: var(--ouro-claro); }
 
 .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
-.skip { position: absolute; left: -999px; top: 0; background: var(--ouro); color: var(--vinho-fundo); padding: .6rem 1rem; z-index: 100; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ouro); color: var(--vinho-fundo); padding: .7rem 1.1rem; font-weight: 700; z-index: 200; }
 .skip:focus { left: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+[hidden] { display: none !important; }
+.icone { width: 1.4em; height: 1.4em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-/* topo */
-.topo { position: sticky; top: 0; z-index: 50; background: var(--vinho); color: #fff; }
-.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; }
-.marca { font-family: var(--serif); font-size: 1.35rem; color: var(--ouro); text-decoration: none; }
-.menu { display: flex; gap: 1.5rem; }
-.menu a { text-decoration: none; font-weight: 500; }
-.menu a:hover { color: var(--ouro); }
-@media (max-width: 760px) { .menu { display: none; } }
+/* ---------- topo ---------- */
+.topo { position: sticky; top: 0; z-index: 50; background: var(--vinho); color: #fff; box-shadow: 0 2px 12px rgba(0, 0, 0, .18); }
+.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+.marca { font-family: var(--serif); font-size: 1.4rem; color: var(--ouro); text-decoration: none; white-space: nowrap; }
+.menu { display: flex; align-items: center; gap: .3rem; }
+.menu a { text-decoration: none; font-weight: 600; padding: .55rem .9rem; border-radius: 999px; transition: background-color .2s, color .2s; }
+.menu a:hover { background: rgba(255, 255, 255, .12); color: var(--ouro-claro); }
+.menu-maps { display: none; }
+.topo-acoes { display: flex; align-items: center; gap: .6rem; }
+.menu-btn { display: none; width: 46px; height: 46px; border: 2px solid rgba(255, 255, 255, .5); border-radius: 12px; background: transparent; color: #fff; cursor: pointer; align-items: center; justify-content: center; }
+.menu-btn:hover { border-color: var(--ouro); color: var(--ouro); }
+@media (max-width: 800px) {
+  .menu-btn { display: inline-flex; }
+  .menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: var(--vinho); padding: .5rem 1.25rem 1.1rem; border-top: 1px solid rgba(255, 255, 255, .15); box-shadow: 0 14px 24px rgba(0, 0, 0, .25); }
+  .menu.aberto { display: flex; }
+  .menu a { padding: .9rem .6rem; border-radius: 8px; font-size: 1.1rem; }
+  .menu-maps { display: block; }
+}
+@media (max-width: 520px) { .topo-acoes .btn { display: none; } }
 
-/* botões */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.4rem; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid transparent; }
-.btn-sm { min-height: 40px; padding: .4rem 1.1rem; }
+/* ---------- botões ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 50px; padding: .75rem 1.5rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, .22); }
+.btn:active { transform: translateY(0); box-shadow: none; }
+.btn-sm { min-height: 42px; padding: .45rem 1.15rem; font-size: .95rem; }
 .btn-ouro { background: var(--ouro); color: var(--vinho-fundo); }
-.btn-ouro:hover { background: #ffc43d; }
-.btn-linha { border-color: #fff; color: #fff; }
-.btn-linha:hover { background: rgba(255,255,255,.14); }
+.btn-ouro:hover { background: var(--ouro-claro); }
+.btn-zap { background: var(--zap); color: #fff; }
+.btn-zap:hover { background: var(--zap-escuro); }
+.btn-linha { border-color: rgba(255, 255, 255, .85); color: #fff; }
+.btn-linha:hover { background: rgba(255, 255, 255, .16); border-color: #fff; }
 .acoes { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
 
-/* imagens */
-.cover { object-fit: cover; }
-.foto-box { position: relative; overflow: hidden; margin: 0; background: var(--tom); border-radius: 6px; }
-
-/* hero */
-.hero { position: relative; min-height: min(78vh, 720px); display: flex; align-items: flex-end; color: #fff; overflow: hidden; }
-.hero-img { object-position: 50% 55%; }
-.hero-veu { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61,14,22,.92) 0%, rgba(61,14,22,.55) 45%, rgba(61,14,22,.1) 100%); }
-.hero-txt { position: relative; padding-block: 3rem 3.5rem; }
-.hero h1 { font-size: clamp(2.1rem, 5.6vw, 4rem); max-width: 16ch; }
-.hero p { font-size: 1.2rem; margin-top: 1rem; max-width: 44ch; }
-@media (max-width: 600px) { .hero { min-height: 82vh; } .hero-img { object-position: 38% 50%; } }
-
-/* toldo: faixa que repete o letreiro da fachada */
-.toldo { background: var(--vinho); color: var(--ouro); display: flex; justify-content: space-around; gap: 2rem; padding: .9rem 1.25rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; overflow: hidden; border-block: 3px solid var(--ouro); }
-@media (max-width: 700px) { .toldo span:nth-child(n+2) { display: none; } .toldo { justify-content: center; } }
-
-/* seções */
-.secao { padding-block: clamp(3rem, 8vw, 6rem); }
-.secao-tom { background: var(--tom); }
-.duas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
-@media (max-width: 860px) { .duas { grid-template-columns: 1fr; } }
-.texto h2 { margin-bottom: 1.2rem; }
-.foto-fachada { aspect-ratio: 4 / 3; }
-.lead { color: var(--suave); margin-top: .6rem; }
-
-/* cardápio */
-.cardapio-fotos { display: grid; grid-template-columns: 2fr 3fr; gap: 1rem; margin-top: 2rem; }
-.foto-quad { aspect-ratio: 4 / 3; }
-.foto-larga { aspect-ratio: auto; min-height: 260px; }
-@media (max-width: 860px) { .cardapio-fotos { grid-template-columns: 1fr; } .foto-larga { aspect-ratio: 16 / 9; min-height: 0; } }
-.grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-@media (max-width: 860px) { .grupos { grid-template-columns: 1fr; } }
-.grupo { border-top: 4px solid var(--ouro); padding-top: .9rem; }
-.grupo ul { list-style: none; margin: .7rem 0 0; padding: 0; }
-.grupo li { padding: .35rem 0; border-bottom: 1px solid rgba(107,26,38,.15); }
-
-/* galeria */
-.galeria { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 150px; gap: .8rem; margin-top: 2rem; }
-.g-wide { grid-column: span 3; grid-row: span 2; }
-.g-tall { grid-column: span 3; grid-row: span 2; }
-@media (min-width: 861px) { .galeria { grid-auto-rows: 170px; } .g-tall { grid-column: span 2; grid-row: span 3; } .g-wide { grid-column: span 4; } .galeria .g-wide:nth-of-type(n+3) { grid-column: span 3; } }
-@media (max-width: 860px) { .galeria { grid-template-columns: 1fr; grid-auto-rows: 220px; } .g-wide, .g-tall { grid-column: auto; grid-row: auto; } }
-
-/* contato */
-.contato { background: var(--vinho); color: #fff; }
-.contato h2 { color: var(--ouro); margin-bottom: 1rem; }
-.end { font-size: 1.2rem; }
-.infos dl { margin: 0 0 1.4rem; }
-.infos dt { font-family: var(--serif); color: var(--ouro); font-size: 1.15rem; }
-.infos dd { margin: .2rem 0 0; }
-
-.rodape { background: var(--vinho-fundo); color: rgba(255,255,255,.75); padding-block: 1.4rem; font-size: .95rem; }
-.rodape p { margin: 0; }
-
+/* ---------- imagens ---------- */
+.foto-box { position: relative; overflow: hidden; margin: 0; background: var(--tom); border-radius: var(--raio); }
 .foto-box img, .hero > img, .hero > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero > img { object-position: 50% 55%; }
+.foto-box img { transition: transform .5s ease; }
 .foto-fachada img { object-position: 30% 50%; }
 .foto-quad img { object-position: 50% 60%; }
 .foto-larga img { object-position: 50% 65%; }
-[hidden] { display: none !important; }
 
+/* ---------- hero ---------- */
+.hero { position: relative; min-height: min(84vh, 760px); display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: var(--vinho-fundo); }
+.hero > img, .hero > video { object-position: 50% 55%; }
+.hero-veu { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .95) 0%, rgba(61, 14, 22, .7) 40%, rgba(61, 14, 22, .2) 100%); }
+.hero-txt { position: relative; padding-block: 4rem 3.5rem; }
+.hero h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); max-width: 16ch; text-shadow: 0 2px 18px rgba(0, 0, 0, .35); }
+.hero-sub { font-size: 1.25rem; margin-top: 1.1rem; max-width: 46ch; }
+.selos { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.selos li { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .4); font-weight: 600; font-size: .98rem; backdrop-filter: blur(4px); }
+.selos .icone { color: var(--ouro); }
+@media (max-width: 600px) { .hero { min-height: 88vh; } .hero > img, .hero > video { object-position: 38% 50%; } .hero-txt { padding-block: 3rem 2.5rem; } }
+
+/* ---------- toldo: repete o letreiro da fachada ---------- */
+.toldo { background: var(--vinho); color: var(--ouro); display: flex; justify-content: space-around; gap: 2rem; padding: .95rem 1.25rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; overflow: hidden; border-block: 3px solid var(--ouro); }
+@media (max-width: 700px) { .toldo span:nth-child(n+2) { display: none; } .toldo { justify-content: center; } }
+
+/* ---------- seções ---------- */
+.secao { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.secao-tom { background: var(--tom); }
+.cabeca { margin-bottom: 2.2rem; }
+.cabeca h2::after { content: ""; display: block; width: 64px; height: 4px; border-radius: 2px; background: var(--ouro); margin-top: .9rem; }
+.lead { color: var(--suave); margin: .9rem 0 0; font-size: 1.1rem; }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.75rem, 5vw, 4.5rem); align-items: center; }
+@media (max-width: 860px) { .duas { grid-template-columns: 1fr; } }
+.texto h2 { margin-bottom: 1.3rem; }
+.foto-fachada { aspect-ratio: 4 / 3; box-shadow: var(--sombra-forte); }
+
+/* ---------- resumo (informações rápidas) ---------- */
+.resumo { padding-block: clamp(2.5rem, 6vw, 4rem); }
+.resumo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+@media (max-width: 980px) { .resumo-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .resumo-grid { grid-template-columns: 1fr; } }
+.info { display: flex; gap: 1rem; align-items: flex-start; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); padding: 1.3rem 1.2rem; box-shadow: var(--sombra); }
+.info-ico { width: 50px; height: 50px; border-radius: 50%; background: var(--vinho); color: var(--ouro); display: grid; place-items: center; flex: none; }
+.info-ico .icone { width: 26px; height: 26px; }
+.info-rot { display: block; font-size: .92rem; font-weight: 700; color: var(--suave); margin-bottom: .15rem; }
+.info-val { display: block; font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; color: var(--vinho); }
+.info-obs { display: block; font-size: .92rem; color: var(--suave); margin-top: .25rem; }
+
+/* ---------- cardápio ---------- */
+.cardapio-fotos { display: grid; grid-template-columns: 2fr 3fr; gap: 1rem; margin-top: 2rem; }
+.foto-quad { aspect-ratio: 4 / 3; box-shadow: var(--sombra); }
+.foto-larga { min-height: 280px; box-shadow: var(--sombra); }
+@media (max-width: 860px) { .cardapio-fotos { grid-template-columns: 1fr; } .foto-larga { aspect-ratio: 16 / 9; min-height: 0; } }
+.grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+@media (max-width: 860px) { .grupos { grid-template-columns: 1fr; } }
+.grupo { background: var(--branco); border: 1px solid var(--linha); border-top: 5px solid var(--ouro); border-radius: var(--raio); padding: 1.4rem 1.4rem 1.2rem; box-shadow: var(--sombra); transition: transform .25s ease, box-shadow .25s ease; }
+.grupo:hover { transform: translateY(-4px); box-shadow: var(--sombra-forte); }
+.grupo ul { list-style: none; margin: .9rem 0 0; padding: 0; }
+.grupo li { position: relative; padding: .5rem 0 .5rem 1.7rem; border-bottom: 1px solid var(--linha); }
+.grupo li:last-child { border-bottom: 0; }
+.grupo li::before { content: ""; position: absolute; left: .15rem; top: 1.05rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ouro); box-shadow: 0 0 0 3px rgba(240, 174, 27, .25); }
+.nota-preco { margin-top: 2rem; padding: 1rem 1.3rem; background: var(--branco); border-left: 5px solid var(--vinho); border-radius: 0 var(--raio) var(--raio) 0; box-shadow: var(--sombra); max-width: none; }
+.nota-preco strong { color: var(--vinho); }
+
+/* ---------- galeria ---------- */
+.galeria { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; grid-auto-flow: dense; gap: .9rem; margin-top: 2rem; }
+.galeria .foto-box { box-shadow: var(--sombra); }
+.galeria .destaque { grid-column: span 2; }
+@media (max-width: 860px) { .galeria { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; gap: .7rem; } }
+.foto-btn { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; display: block; }
+.foto-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .45), transparent 45%); opacity: 0; transition: opacity .3s; }
+.foto-btn:hover::after, .foto-btn:focus-visible::after { opacity: 1; }
+.foto-btn:hover img { transform: scale(1.06); }
+.foto-btn:focus-visible { outline-offset: -5px; }
+
+.lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; overflow: visible; }
+.lightbox::backdrop { background: rgba(20, 5, 8, .88); }
+.lightbox img { display: block; max-width: 96vw; max-height: 88vh; object-fit: contain; border-radius: 10px; }
+.lightbox-fechar { position: absolute; top: -52px; right: 0; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--ouro); color: var(--vinho-fundo); font-size: 1.6rem; line-height: 1; font-weight: 700; cursor: pointer; }
+.lightbox-fechar:hover { background: var(--ouro-claro); }
+.lightbox-legenda { color: #fff; text-align: center; margin: .7rem 0 0; max-width: none; font-size: .98rem; }
+
+/* ---------- contato ---------- */
+.contato { background: var(--vinho); color: #fff; }
+.contato h2 { color: var(--ouro); margin-bottom: 1rem; }
+.end { font-size: 1.25rem; }
+.infos { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .22); border-radius: var(--raio); padding: 1.6rem; }
+.infos dl { margin: 0 0 1.3rem; }
+.infos dl:last-child { margin-bottom: 0; }
+.infos dt { font-family: var(--serif); color: var(--ouro); font-size: 1.15rem; margin-bottom: .2rem; }
+.infos dd { margin: 0; font-size: 1.08rem; }
+.infos a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.infos a:hover { color: var(--ouro-claro); }
+
+/* ---------- rodapé ---------- */
+.rodape { background: var(--vinho-fundo); color: rgba(255, 255, 255, .85); padding-block: 1.8rem; font-size: .96rem; }
+.rodape-in { display: flex; flex-wrap: wrap; gap: .6rem 2rem; justify-content: space-between; align-items: center; }
+.rodape p { margin: 0; max-width: none; }
+.rodape a { text-underline-offset: 3px; }
+.rodape a:hover { color: var(--ouro-claro); }
+
+/* ---------- botão flutuante de WhatsApp ---------- */
+.zap-flutuante { position: fixed; right: calc(1rem + env(safe-area-inset-right, 0px)); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 90; display: inline-flex; align-items: center; gap: .6rem; height: 62px; min-width: 62px; padding: 0 1.2rem 0 1rem; border-radius: 999px; background: var(--zap); color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.zap-flutuante:hover { background: var(--zap-escuro); transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0, 0, 0, .4); }
+.zap-flutuante .icone { width: 30px; height: 30px; stroke-width: 2; }
+@media (max-width: 700px) { .zap-flutuante { width: 62px; padding: 0; justify-content: center; } .zap-flutuante span { display: none; } }
+
+/* ---------- movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .btn:hover, .grupo:hover, .zap-flutuante:hover, .foto-btn:hover img { transform: none; }
+}
 </style>
 </head>
 <body>
@@ -127,29 +239,49 @@ a { color: inherit; }
 
 <header class="topo">
   <div class="wrap topo-in">
-    <a class="marca" href="#inicio">Bistrô Du Rei</a>
-    <nav aria-label="Principal" class="menu">
+    <a class="marca" href="#inicio" aria-label="Bistrô Du Rei, ir para o início">Bistrô Du Rei</a>
+    <nav aria-label="Principal" class="menu" id="menu">
+      <a href="#informacoes">Informações</a>
       <a href="#restaurante">O restaurante</a>
       <a href="#cardapio">Cardápio</a>
       <a href="#galeria">Galeria</a>
       <a href="#contato">Contato</a>
+      <a class="menu-maps" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
     </nav>
-    <a class="btn btn-ouro btn-sm" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
+    <div class="topo-acoes">
+      <a class="btn btn-ouro btn-sm" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main id="conteudo">
-  <section class="hero" id="inicio">
+  <section class="hero" id="inicio" aria-labelledby="titulo-hero">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/restaurante/buffet-self-service.webp" aria-hidden="true" tabindex="-1">
-    <source src="images/restaurante/video-buffet.mp4" type="video/mp4">
-  </video>
+      <source src="images/restaurante/video-buffet.mp4" type="video/mp4">
+    </video>
     <div class="hero-veu" aria-hidden="true"></div>
     <div class="wrap hero-txt">
-      <h1>Comida caseira para o seu almoço de todo dia</h1>
-      <p>Buffet self-service em Alcântara, São Gonçalo – RJ. Monte o seu prato do jeito que quiser.</p>
+      <h1 id="titulo-hero">Comida caseira para o seu almoço de todo dia</h1>
+      <p class="hero-sub">Buffet self-service em Alcântara, São Gonçalo – RJ. Monte o seu prato do jeito que quiser.</p>
+      <ul class="selos" aria-label="Resumo">
+        <li>
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+          <span data-preco>R$ 20,00 a R$ 40,00 por pessoa</span>
+        </li>
+        <li>
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span data-horario>Segunda a sábado, 11h às 15h</span>
+        </li>
+      </ul>
       <div class="acoes">
-        <a class="btn btn-ouro" href="#cardapio">Ver o cardápio</a>
-        <a class="btn btn-linha" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
+        <a class="btn btn-zap" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" hidden>
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="btn btn-linha" href="#cardapio">Ver o cardápio</a>
       </div>
     </div>
   </section>
@@ -158,72 +290,122 @@ a { color: inherit; }
     <span>Almoço • Self Service</span><span>Almoço • Self Service</span><span>Almoço • Self Service</span>
   </div>
 
-  <section class="secao" id="restaurante">
+  <section class="resumo" id="informacoes" aria-labelledby="titulo-resumo">
+    <div class="wrap">
+      <h2 class="sr-only" id="titulo-resumo">Informações rápidas</h2>
+      <ul class="resumo-grid">
+        <li class="info">
+          <span class="info-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+          <span>
+            <span class="info-rot">Preço médio</span>
+            <span class="info-val" data-preco>R$ 20,00 a R$ 40,00 por pessoa</span>
+          </span>
+        </li>
+        <li class="info">
+          <span class="info-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span>
+            <span class="info-rot">Localização</span>
+            <span class="info-val">Alcântara, São Gonçalo</span>
+            <span class="info-obs">Rio de Janeiro</span>
+          </span>
+        </li>
+        <li class="info">
+          <span class="info-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2v7a3 3 0 0 0 3 3v10M8 2v7M11 2v7a3 3 0 0 1-3 3M19 22V2c-2.5 1.5-4 4-4 8 0 2 1 3 4 3"/></svg></span>
+          <span>
+            <span class="info-rot">Estilo de comida</span>
+            <span class="info-val">Self-service e comida caseira</span>
+          </span>
+        </li>
+        <li class="info">
+          <span class="info-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <span>
+            <span class="info-rot">Horário</span>
+            <span class="info-val" data-horario>Segunda a sábado, 11h às 15h</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao secao-tom" id="restaurante" aria-labelledby="titulo-restaurante">
     <div class="wrap duas">
       <div class="foto-box foto-fachada">
-        <img src="images/restaurante/fachada-restaurante.webp" width="1386" height="611" loading="lazy" alt="Fachada do Bistrô Du Rei Cozinha Caseira com letreiro vinho escrito Almoço Self Service">
+        <img src="images/restaurante/fachada-restaurante.webp" width="1386" height="611" loading="lazy" decoding="async" alt="Fachada do Bistrô Du Rei Cozinha Caseira com letreiro vinho escrito Almoço Self Service">
       </div>
       <div class="texto">
-        <h2>Cozinha caseira, servida no self-service</h2>
+        <h2 id="titulo-restaurante">Cozinha caseira, servida no self-service</h2>
         <p>O Bistrô Du Rei Cozinha Caseira fica em Alcântara, em São Gonçalo. No almoço, o buffet reúne saladas, acompanhamentos e pratos quentes para você escolher o que colocar no prato.</p>
         <p>Procure o letreiro vinho com letras amarelas na fachada: é ali.</p>
+        <div class="acoes">
+          <a class="btn btn-ouro" data-maps href="#" target="_blank" rel="noopener noreferrer">Ver no mapa</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="secao secao-tom" id="cardapio">
+  <section class="secao" id="cardapio" aria-labelledby="titulo-cardapio">
     <div class="wrap">
-      <h2>O que você encontra no buffet</h2>
-      <p class="lead">Itens que aparecem nas fotos do buffet. A seleção do dia pode variar.</p>
+      <div class="cabeca">
+        <h2 id="titulo-cardapio">O que você encontra no buffet</h2>
+        <p class="lead">Itens que aparecem nas fotos do buffet. A seleção do dia pode variar.</p>
+      </div>
 
       <div class="cardapio-fotos">
         <figure class="foto-box foto-quad">
-          <img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão">
+          <img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" decoding="async" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão">
         </figure>
         <figure class="foto-box foto-larga">
-          <img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto">
+          <img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" decoding="async" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto">
         </figure>
       </div>
 
       <div class="grupos">
-        <div class="grupo"><h3>Saladas</h3><ul><li>Folhas verdes</li><li>Tomate com cebola</li><li>Grão-de-bico</li><li>Salada de macarrão</li></ul></div>
-        <div class="grupo"><h3>Acompanhamentos</h3><ul><li>Arroz</li><li>Purê</li><li>Batata frita</li><li>Anéis de cebola</li><li>Massas</li></ul></div>
-        <div class="grupo"><h3>Pratos</h3><ul><li>Muffins de legumes</li><li>Panqueca de frango (sem glúten)</li><li>Frango</li><li>Linguiça</li></ul></div>
+        <article class="grupo"><h3>Saladas</h3><ul><li>Folhas verdes</li><li>Tomate com cebola</li><li>Grão-de-bico</li><li>Salada de macarrão</li></ul></article>
+        <article class="grupo"><h3>Acompanhamentos</h3><ul><li>Arroz</li><li>Purê</li><li>Batata frita</li><li>Anéis de cebola</li><li>Massas</li></ul></article>
+        <article class="grupo"><h3>Pratos</h3><ul><li>Muffins de legumes</li><li>Panqueca de frango (sem glúten)</li><li>Frango</li><li>Linguiça</li></ul></article>
       </div>
+
+      <p class="nota-preco">Preço médio: <strong data-preco>R$ 20,00 a R$ 40,00 por pessoa</strong>.</p>
     </div>
   </section>
 
-  <section class="secao" id="galeria">
+  <section class="secao secao-tom" id="galeria" aria-labelledby="titulo-galeria">
     <div class="wrap">
-      <h2>Galeria</h2>
+      <div class="cabeca">
+        <h2 id="titulo-galeria">Galeria</h2>
+        <p class="lead">Toque em uma foto para ampliar.</p>
+      </div>
       <div class="galeria">
-        <figure class="foto-box g-wide"><img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto"></figure>
-        <figure class="foto-box g-tall"><img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/buffet-self-service.webp" width="1415" height="586" loading="lazy" alt="Buffet self-service com panelas aquecidas de arroz, massas, batata frita e outros pratos"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/fachada-restaurante.webp" width="1386" height="611" loading="lazy" alt="Fachada do Bistrô Du Rei Cozinha Caseira com letreiro vinho escrito Almoço Self Service"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/frango-grelhado.png" loading="lazy" alt="Peças de frango grelhado servidas sobre folhas verdes"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/torta-de-legumes.png" loading="lazy" alt="Torta salgada de legumes servida com tomate"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/quiche-de-espinafre.png" loading="lazy" alt="Quiche salgada com folhas verdes"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/salada-tomate-seco.png" loading="lazy" alt="Salada de folhas verdes com tomate seco"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/bebidas-balcao.png" loading="lazy" alt="Balcão do restaurante com bebidas e buffet ao fundo"></figure>
-        <figure class="foto-box g-wide"><img src="images/restaurante/buffet-de-saladas.png" loading="lazy" alt="Balcão de buffet com variedade de saladas e acompanhamentos"></figure>
+        <figure class="foto-box destaque"><button class="foto-btn" type="button" aria-label="Ampliar foto: buffet self-service"><img src="images/restaurante/buffet-self-service.webp" width="1415" height="586" loading="lazy" decoding="async" alt="Buffet self-service com panelas aquecidas de arroz, massas, batata frita e outros pratos"></button></figure>
+        <figure class="foto-box"><button class="foto-btn" type="button" aria-label="Ampliar foto: balcão de saladas"><img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" decoding="async" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão"></button></figure>
+        <figure class="foto-box"><button class="foto-btn" type="button" aria-label="Ampliar foto: frango grelhado"><img src="images/restaurante/frango-grelhado.png" loading="lazy" decoding="async" alt="Peças de frango grelhado servidas sobre folhas verdes"></button></figure>
+        <figure class="foto-box"><button class="foto-btn" type="button" aria-label="Ampliar foto: torta de legumes"><img src="images/restaurante/torta-de-legumes.png" loading="lazy" decoding="async" alt="Torta salgada de legumes servida com tomate"></button></figure>
+        <figure class="foto-box"><button class="foto-btn" type="button" aria-label="Ampliar foto: quiche"><img src="images/restaurante/quiche-de-espinafre.png" loading="lazy" decoding="async" alt="Quiche salgada com folhas verdes"></button></figure>
+        <figure class="foto-box destaque"><button class="foto-btn" type="button" aria-label="Ampliar foto: pratos quentes"><img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" decoding="async" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto"></button></figure>
+        <figure class="foto-box"><button class="foto-btn" type="button" aria-label="Ampliar foto: salada com tomate seco"><img src="images/restaurante/salada-tomate-seco.png" loading="lazy" decoding="async" alt="Salada de folhas verdes com tomate seco"></button></figure>
+        <figure class="foto-box"><button class="foto-btn" type="button" aria-label="Ampliar foto: balcão de bebidas"><img src="images/restaurante/bebidas-balcao.png" loading="lazy" decoding="async" alt="Balcão do restaurante com bebidas e buffet ao fundo"></button></figure>
+        <figure class="foto-box destaque"><button class="foto-btn" type="button" aria-label="Ampliar foto: fachada do restaurante"><img src="images/restaurante/fachada-restaurante.webp" width="1386" height="611" loading="lazy" decoding="async" alt="Fachada do Bistrô Du Rei Cozinha Caseira com letreiro vinho escrito Almoço Self Service"></button></figure>
       </div>
     </div>
   </section>
 
-  <section class="secao contato" id="contato">
+  <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
     <div class="wrap duas contato-in">
       <div>
-        <h2>Venha almoçar com a gente</h2>
-        <p class="end">Bistrô Du Rei Cozinha Caseira<br>Alcântara, São Gonçalo – RJ</p>
+        <h2 id="titulo-contato">Venha almoçar com a gente</h2>
+        <address class="end" style="font-style: normal;">Bistrô Du Rei Cozinha Caseira<br>Alcântara, São Gonçalo – RJ</address>
         <div class="acoes">
+          <a class="btn btn-zap" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" hidden>
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Chamar no WhatsApp
+          </a>
           <a class="btn btn-ouro" data-maps href="#" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
-          <a class="btn btn-linha" id="btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer" hidden>Chamar no WhatsApp</a>
         </div>
       </div>
       <div class="infos">
-        <dl id="bloco-horarios" hidden><dt>Horários</dt></dl>
-        <dl id="bloco-telefone" hidden><dt>Telefone</dt><dd><a id="link-telefone" href="#"></a></dd></dl>
+        <dl id="bloco-horarios" hidden><dt>Horário de funcionamento</dt></dl>
+        <dl id="bloco-preco" hidden><dt>Preço médio</dt><dd data-preco></dd></dl>
+        <dl id="bloco-telefone" hidden><dt>Telefone e WhatsApp</dt><dd><a id="link-telefone" href="#"></a></dd></dl>
         <dl id="bloco-instagram" hidden><dt>Instagram</dt><dd><a id="link-instagram" href="#" target="_blank" rel="noopener noreferrer">Ver perfil</a></dd></dl>
       </div>
     </div>
@@ -231,39 +413,53 @@ a { color: inherit; }
 </main>
 
 <footer class="rodape">
-  <div class="wrap"><p>© <span id="ano"></span> Bistrô Du Rei Cozinha Caseira</p></div>
+  <div class="wrap rodape-in">
+    <p>© <span id="ano"></span> Bistrô Du Rei Cozinha Caseira. Alcântara, São Gonçalo – RJ.</p>
+    <p><a id="rodape-tel" href="#" hidden></a></p>
+  </div>
 </footer>
 
+<!-- Botão flutuante de WhatsApp (aparece quando CONFIG.whatsapp estiver preenchido) -->
+<a class="zap-flutuante" id="zap-flutuante" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-label="Chamar o Bistrô Du Rei no WhatsApp" hidden>
+  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<!-- Ampliação de fotos da galeria -->
+<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+  <button class="lightbox-fechar" id="lightbox-fechar" type="button" aria-label="Fechar foto">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-legenda" id="lightbox-legenda"></p>
+</dialog>
+
 <script>
-  // Preencha quando o proprietário informar. Campos vazios ficam escondidos.
+  // Dados do restaurante. Edite aqui: o site inteiro se atualiza.
+  // Se mudar telefone, preço ou horário, atualize também o bloco JSON-LD no <head> (para o Google).
   var CONFIG = {
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Restaurante+Bistro+Du+Rei+Cozinha+Caseira+Alcantara+Sao+Goncalo+RJ",
-    whatsapp: "",   // só dígitos com DDI e DDD. Ex.: "5521999999999"
-    telefone: "",   // Ex.: "(21) 99999-9999"
-    instagram: "",  // Ex.: "https://www.instagram.com/usuario"
-    horarios: []    // Ex.: [{ dias: "Segunda a sexta", horario: "11h às 15h" }]
+    whatsapp: "5521983278031",          // só dígitos com DDI e DDD
+    telefone: "(21) 98327-8031",
+    instagram: "",                      // Ex.: "https://www.instagram.com/usuario"
+    preco: "R$ 20,00 a R$ 40,00 por pessoa",
+    horarios: [{ dias: "Segunda a sábado", horario: "11h às 15h" }],
+    mensagemWhatsapp: "Olá! Vim pelo site e gostaria de saber mais sobre o Bistrô Du Rei."
   };
 
-  document.querySelectorAll("[data-maps]").forEach(function (a) { a.href = CONFIG.mapsUrl; });
-  document.getElementById("ano").textContent = new Date().getFullYear();
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  if (CONFIG.whatsapp) {
-    var w = document.getElementById("btn-whatsapp");
-    w.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Olá! Gostaria de saber mais sobre o Bistrô Du Rei.");
-    w.hidden = false;
+  $$("[data-maps]").forEach(function (a) { a.href = CONFIG.mapsUrl; });
+  $("#ano").textContent = new Date().getFullYear();
+
+  if (CONFIG.preco) {
+    $$("[data-preco]").forEach(function (el) { el.textContent = CONFIG.preco; });
+    $("#bloco-preco").hidden = false;
   }
-  if (CONFIG.telefone) {
-    var t = document.getElementById("link-telefone");
-    t.textContent = CONFIG.telefone;
-    t.href = "tel:" + CONFIG.telefone.replace(/\D/g, "");
-    document.getElementById("bloco-telefone").hidden = false;
-  }
-  if (CONFIG.instagram) {
-    document.getElementById("link-instagram").href = CONFIG.instagram;
-    document.getElementById("bloco-instagram").hidden = false;
-  }
+
   if (CONFIG.horarios.length) {
-    var bloco = document.getElementById("bloco-horarios");
+    var resumoHorario = CONFIG.horarios.map(function (h) { return h.dias + ", " + h.horario; }).join(" | ");
+    $$("[data-horario]").forEach(function (el) { el.textContent = resumoHorario; });
+    var bloco = $("#bloco-horarios");
     CONFIG.horarios.forEach(function (h) {
       var dd = document.createElement("dd");
       dd.textContent = h.dias + ": " + h.horario;
@@ -271,11 +467,60 @@ a { color: inherit; }
     });
     bloco.hidden = false;
   }
+
+  if (CONFIG.whatsapp) {
+    var url = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagemWhatsapp);
+    $$("[data-whatsapp]").forEach(function (a) { a.href = url; a.hidden = false; });
+  }
+
+  if (CONFIG.telefone) {
+    var tel = "tel:+55" + CONFIG.telefone.replace(/\D/g, "");
+    var t = $("#link-telefone");
+    t.textContent = CONFIG.telefone;
+    t.href = tel;
+    $("#bloco-telefone").hidden = false;
+    var rt = $("#rodape-tel");
+    rt.textContent = "Telefone: " + CONFIG.telefone;
+    rt.href = tel;
+    rt.hidden = false;
+  }
+
+  if (CONFIG.instagram) {
+    $("#link-instagram").href = CONFIG.instagram;
+    $("#bloco-instagram").hidden = false;
+  }
+
+  // Menu no celular
+  var menu = $("#menu"), menuBtn = $("#menu-btn");
+  function fecharMenu() { menu.classList.remove("aberto"); menuBtn.setAttribute("aria-expanded", "false"); menuBtn.setAttribute("aria-label", "Abrir menu"); }
+  menuBtn.addEventListener("click", function () {
+    var aberto = menu.classList.toggle("aberto");
+    menuBtn.setAttribute("aria-expanded", String(aberto));
+    menuBtn.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+  });
+  $$("a", menu).forEach(function (a) { a.addEventListener("click", fecharMenu); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") fecharMenu(); });
+
+  // Vídeo do hero: respeita quem prefere menos movimento (mostra só a foto)
+  var video = $(".hero-video");
+  if (video && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    video.removeAttribute("autoplay");
+    video.pause();
+  }
+
+  // Galeria: ampliar foto
+  var lb = $("#lightbox"), lbImg = $("#lightbox-img"), lbLegenda = $("#lightbox-legenda");
+  $$(".foto-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var img = $("img", btn);
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbLegenda.textContent = img.alt;
+      if (typeof lb.showModal === "function") { lb.showModal(); }
+    });
+  });
+  $("#lightbox-fechar").addEventListener("click", function () { lb.close(); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) { lb.close(); } });
 </script>
 </body>
 </html>
-
-
-
-
-
