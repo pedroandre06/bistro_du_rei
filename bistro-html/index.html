@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bistrô Du Rei Cozinha Caseira | Almoço self-service em Alcântara</title>
+<meta name="description" content="Almoço self-service com comida caseira em Alcântara, São Gonçalo - RJ.">
+<meta name="theme-color" content="#6b1a26">
+<meta property="og:title" content="Bistrô Du Rei Cozinha Caseira">
+<meta property="og:description" content="Almoço self-service com comida caseira em Alcântara, São Gonçalo - RJ.">
+<meta property="og:image" content="images/restaurante/fachada-restaurante.webp">
+<link rel="preload" href="fonts/young-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Young Serif"; src: url("fonts/young-serif-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Figtree Variable"; src: url("fonts/figtree-latin-wght-normal.woff2") format("woff2"); font-weight: 300 900; font-display: swap; }
+:root {
+  --vinho: #6b1a26;
+  --vinho-fundo: #3d0e16;
+  --ouro: #f0ae1b;
+  --papel: #fbf9f8;
+  --tom: #f3ecea;
+  --tinta: #2b1417;
+  --suave: #6a5559;
+  --serif: "Young Serif", Georgia, serif;
+  --sans: "Figtree Variable", "Figtree", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; font-family: var(--sans); color: var(--tinta); background: var(--papel); line-height: 1.6; font-size: 1.0625rem; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); color: var(--vinho); }
+h3 { font-size: 1.3rem; color: var(--vinho); }
+p { margin: 0 0 1rem; max-width: 62ch; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ouro); outline-offset: 3px; }
+
+.wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ouro); color: var(--vinho-fundo); padding: .6rem 1rem; z-index: 100; }
+.skip:focus { left: 0; }
+
+/* topo */
+.topo { position: sticky; top: 0; z-index: 50; background: var(--vinho); color: #fff; }
+.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; }
+.marca { font-family: var(--serif); font-size: 1.35rem; color: var(--ouro); text-decoration: none; }
+.menu { display: flex; gap: 1.5rem; }
+.menu a { text-decoration: none; font-weight: 500; }
+.menu a:hover { color: var(--ouro); }
+@media (max-width: 760px) { .menu { display: none; } }
+
+/* botões */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.4rem; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid transparent; }
+.btn-sm { min-height: 40px; padding: .4rem 1.1rem; }
+.btn-ouro { background: var(--ouro); color: var(--vinho-fundo); }
+.btn-ouro:hover { background: #ffc43d; }
+.btn-linha { border-color: #fff; color: #fff; }
+.btn-linha:hover { background: rgba(255,255,255,.14); }
+.acoes { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+
+/* imagens */
+.cover { object-fit: cover; }
+.foto-box { position: relative; overflow: hidden; margin: 0; background: var(--tom); border-radius: 6px; }
+
+/* hero */
+.hero { position: relative; min-height: min(78vh, 720px); display: flex; align-items: flex-end; color: #fff; overflow: hidden; }
+.hero-img { object-position: 50% 55%; }
+.hero-veu { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61,14,22,.92) 0%, rgba(61,14,22,.55) 45%, rgba(61,14,22,.1) 100%); }
+.hero-txt { position: relative; padding-block: 3rem 3.5rem; }
+.hero h1 { font-size: clamp(2.1rem, 5.6vw, 4rem); max-width: 16ch; }
+.hero p { font-size: 1.2rem; margin-top: 1rem; max-width: 44ch; }
+@media (max-width: 600px) { .hero { min-height: 82vh; } .hero-img { object-position: 38% 50%; } }
+
+/* toldo: faixa que repete o letreiro da fachada */
+.toldo { background: var(--vinho); color: var(--ouro); display: flex; justify-content: space-around; gap: 2rem; padding: .9rem 1.25rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; overflow: hidden; border-block: 3px solid var(--ouro); }
+@media (max-width: 700px) { .toldo span:nth-child(n+2) { display: none; } .toldo { justify-content: center; } }
+
+/* seções */
+.secao { padding-block: clamp(3rem, 8vw, 6rem); }
+.secao-tom { background: var(--tom); }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+@media (max-width: 860px) { .duas { grid-template-columns: 1fr; } }
+.texto h2 { margin-bottom: 1.2rem; }
+.foto-fachada { aspect-ratio: 4 / 3; }
+.lead { color: var(--suave); margin-top: .6rem; }
+
+/* cardápio */
+.cardapio-fotos { display: grid; grid-template-columns: 2fr 3fr; gap: 1rem; margin-top: 2rem; }
+.foto-quad { aspect-ratio: 4 / 3; }
+.foto-larga { aspect-ratio: auto; min-height: 260px; }
+@media (max-width: 860px) { .cardapio-fotos { grid-template-columns: 1fr; } .foto-larga { aspect-ratio: 16 / 9; min-height: 0; } }
+.grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+@media (max-width: 860px) { .grupos { grid-template-columns: 1fr; } }
+.grupo { border-top: 4px solid var(--ouro); padding-top: .9rem; }
+.grupo ul { list-style: none; margin: .7rem 0 0; padding: 0; }
+.grupo li { padding: .35rem 0; border-bottom: 1px solid rgba(107,26,38,.15); }
+
+/* galeria */
+.galeria { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 150px; gap: .8rem; margin-top: 2rem; }
+.g-wide { grid-column: span 3; grid-row: span 2; }
+.g-tall { grid-column: span 3; grid-row: span 2; }
+@media (min-width: 861px) { .galeria { grid-auto-rows: 170px; } .g-tall { grid-column: span 2; grid-row: span 3; } .g-wide { grid-column: span 4; } .galeria .g-wide:nth-of-type(n+3) { grid-column: span 3; } }
+@media (max-width: 860px) { .galeria { grid-template-columns: 1fr; grid-auto-rows: 220px; } .g-wide, .g-tall { grid-column: auto; grid-row: auto; } }
+
+/* contato */
+.contato { background: var(--vinho); color: #fff; }
+.contato h2 { color: var(--ouro); margin-bottom: 1rem; }
+.end { font-size: 1.2rem; }
+.infos dl { margin: 0 0 1.4rem; }
+.infos dt { font-family: var(--serif); color: var(--ouro); font-size: 1.15rem; }
+.infos dd { margin: .2rem 0 0; }
+
+.rodape { background: var(--vinho-fundo); color: rgba(255,255,255,.75); padding-block: 1.4rem; font-size: .95rem; }
+.rodape p { margin: 0; }
+
+.foto-box img, .hero > img, .hero > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero > img { object-position: 50% 55%; }
+.foto-fachada img { object-position: 30% 50%; }
+.foto-quad img { object-position: 50% 60%; }
+.foto-larga img { object-position: 50% 65%; }
+[hidden] { display: none !important; }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="#inicio">Bistrô Du Rei</a>
+    <nav aria-label="Principal" class="menu">
+      <a href="#restaurante">O restaurante</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-ouro btn-sm" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="inicio">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/restaurante/buffet-self-service.webp" aria-hidden="true" tabindex="-1">
+    <source src="images/restaurante/video-buffet.mp4" type="video/mp4">
+  </video>
+    <div class="hero-veu" aria-hidden="true"></div>
+    <div class="wrap hero-txt">
+      <h1>Comida caseira para o seu almoço de todo dia</h1>
+      <p>Buffet self-service em Alcântara, São Gonçalo – RJ. Monte o seu prato do jeito que quiser.</p>
+      <div class="acoes">
+        <a class="btn btn-ouro" href="#cardapio">Ver o cardápio</a>
+        <a class="btn btn-linha" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="toldo" aria-hidden="true">
+    <span>Almoço • Self Service</span><span>Almoço • Self Service</span><span>Almoço • Self Service</span>
+  </div>
+
+  <section class="secao" id="restaurante">
+    <div class="wrap duas">
+      <div class="foto-box foto-fachada">
+        <img src="images/restaurante/fachada-restaurante.webp" width="1386" height="611" loading="lazy" alt="Fachada do Bistrô Du Rei Cozinha Caseira com letreiro vinho escrito Almoço Self Service">
+      </div>
+      <div class="texto">
+        <h2>Cozinha caseira, servida no self-service</h2>
+        <p>O Bistrô Du Rei Cozinha Caseira fica em Alcântara, em São Gonçalo. No almoço, o buffet reúne saladas, acompanhamentos e pratos quentes para você escolher o que colocar no prato.</p>
+        <p>Procure o letreiro vinho com letras amarelas na fachada: é ali.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao secao-tom" id="cardapio">
+    <div class="wrap">
+      <h2>O que você encontra no buffet</h2>
+      <p class="lead">Itens que aparecem nas fotos do buffet. A seleção do dia pode variar.</p>
+
+      <div class="cardapio-fotos">
+        <figure class="foto-box foto-quad">
+          <img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão">
+        </figure>
+        <figure class="foto-box foto-larga">
+          <img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto">
+        </figure>
+      </div>
+
+      <div class="grupos">
+        <div class="grupo"><h3>Saladas</h3><ul><li>Folhas verdes</li><li>Tomate com cebola</li><li>Grão-de-bico</li><li>Salada de macarrão</li></ul></div>
+        <div class="grupo"><h3>Acompanhamentos</h3><ul><li>Arroz</li><li>Purê</li><li>Batata frita</li><li>Anéis de cebola</li><li>Massas</li></ul></div>
+        <div class="grupo"><h3>Pratos</h3><ul><li>Muffins de legumes</li><li>Panqueca de frango (sem glúten)</li><li>Frango</li><li>Linguiça</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="galeria">
+    <div class="wrap">
+      <h2>Galeria</h2>
+      <div class="galeria">
+        <figure class="foto-box g-wide"><img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto"></figure>
+        <figure class="foto-box g-tall"><img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão"></figure>
+        <figure class="foto-box g-wide"><img src="images/restaurante/buffet-self-service.webp" width="1415" height="586" loading="lazy" alt="Buffet self-service com panelas aquecidas de arroz, massas, batata frita e outros pratos"></figure>
+        <figure class="foto-box g-wide"><img src="images/restaurante/fachada-restaurante.webp" width="1386" height="611" loading="lazy" alt="Fachada do Bistrô Du Rei Cozinha Caseira com letreiro vinho escrito Almoço Self Service"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao contato" id="contato">
+    <div class="wrap duas contato-in">
+      <div>
+        <h2>Venha almoçar com a gente</h2>
+        <p class="end">Bistrô Du Rei Cozinha Caseira<br>Alcântara, São Gonçalo – RJ</p>
+        <div class="acoes">
+          <a class="btn btn-ouro" data-maps href="#" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+          <a class="btn btn-linha" id="btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer" hidden>Chamar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="infos">
+        <dl id="bloco-horarios" hidden><dt>Horários</dt></dl>
+        <dl id="bloco-telefone" hidden><dt>Telefone</dt><dd><a id="link-telefone" href="#"></a></dd></dl>
+        <dl id="bloco-instagram" hidden><dt>Instagram</dt><dd><a id="link-instagram" href="#" target="_blank" rel="noopener noreferrer">Ver perfil</a></dd></dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap"><p>© <span id="ano"></span> Bistrô Du Rei Cozinha Caseira</p></div>
+</footer>
+
+<script>
+  // Preencha quando o proprietário informar. Campos vazios ficam escondidos.
+  var CONFIG = {
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Restaurante+Bistro+Du+Rei+Cozinha+Caseira+Alcantara+Sao+Goncalo+RJ",
+    whatsapp: "",   // só dígitos com DDI e DDD. Ex.: "5521999999999"
+    telefone: "",   // Ex.: "(21) 99999-9999"
+    instagram: "",  // Ex.: "https://www.instagram.com/usuario"
+    horarios: []    // Ex.: [{ dias: "Segunda a sexta", horario: "11h às 15h" }]
+  };
+
+  document.querySelectorAll("[data-maps]").forEach(function (a) { a.href = CONFIG.mapsUrl; });
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+  if (CONFIG.whatsapp) {
+    var w = document.getElementById("btn-whatsapp");
+    w.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Olá! Gostaria de saber mais sobre o Bistrô Du Rei.");
+    w.hidden = false;
+  }
+  if (CONFIG.telefone) {
+    var t = document.getElementById("link-telefone");
+    t.textContent = CONFIG.telefone;
+    t.href = "tel:" + CONFIG.telefone.replace(/\D/g, "");
+    document.getElementById("bloco-telefone").hidden = false;
+  }
+  if (CONFIG.instagram) {
+    document.getElementById("link-instagram").href = CONFIG.instagram;
+    document.getElementById("bloco-instagram").hidden = false;
+  }
+  if (CONFIG.horarios.length) {
+    var bloco = document.getElementById("bloco-horarios");
+    CONFIG.horarios.forEach(function (h) {
+      var dd = document.createElement("dd");
+      dd.textContent = h.dias + ": " + h.horario;
+      bloco.appendChild(dd);
+    });
+    bloco.hidden = false;
+  }
+</script>
+</body>
+</html>
+
+
+
