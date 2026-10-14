@@ -14,6 +14,8 @@
 <meta property="og:description" content="Comida caseira no self-service, de segunda a sábado, das 11h às 15h, em Alcântara, São Gonçalo - RJ.">
 <meta property="og:image" content="images/restaurante/fachada-restaurante.webp">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="images/restaurante/logo-bistro-du-rei.png">
+<link rel="apple-touch-icon" href="images/restaurante/logo-bistro-du-rei.png">
 <link rel="preload" href="fonts/young-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Dados estruturados para o Google. Se mudar telefone, preço ou horário, atualize aqui também. -->
@@ -58,27 +60,27 @@
   --branco: #ffffff;
   --tinta: #2b1417;
   --suave: #55424a;
-  --linha: rgba(107, 26, 38, .16);
-  --zap: #1fa855;
+  --linha: rgba(107, 26, 38, .14);
   --zap-escuro: #178a45;
   --serif: "Young Serif", Georgia, serif;
   --sans: "Figtree Variable", "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --raio: 14px;
+  --raio: 16px;
+  --topo-h: 68px;
   --sombra: 0 1px 2px rgba(61, 14, 22, .08), 0 8px 24px rgba(61, 14, 22, .08);
-  --sombra-forte: 0 2px 4px rgba(61, 14, 22, .12), 0 16px 36px rgba(61, 14, 22, .16);
+  --sombra-forte: 0 2px 4px rgba(61, 14, 22, .12), 0 18px 40px rgba(61, 14, 22, .18);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
-body { margin: 0; font-family: var(--sans); color: var(--tinta); background: var(--papel); line-height: 1.65; font-size: 1.0625rem; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; font-family: var(--sans); color: var(--tinta); background: var(--papel); line-height: 1.65; font-size: 1.0625rem; }
 img, video { max-width: 100%; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
 h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); color: var(--vinho); }
-h3 { font-size: 1.3rem; color: var(--vinho); }
+h3 { font-size: 1.35rem; color: var(--vinho); }
 p { margin: 0 0 1rem; max-width: 62ch; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--ouro); outline-offset: 3px; }
-.contato :focus-visible, .topo :focus-visible, .rodape :focus-visible, .hero :focus-visible { outline-color: var(--ouro-claro); }
+.topo :focus-visible, .hero :focus-visible, .avaliacoes :focus-visible, .rodape :focus-visible { outline-color: var(--ouro-claro); }
 
 .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
 .skip { position: absolute; left: -999px; top: 0; background: var(--ouro); color: var(--vinho-fundo); padding: .7rem 1.1rem; font-weight: 700; z-index: 200; }
@@ -87,20 +89,23 @@ a { color: inherit; }
 [hidden] { display: none !important; }
 .icone { width: 1.4em; height: 1.4em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ---------- topo ---------- */
-.topo { position: sticky; top: 0; z-index: 50; background: var(--vinho); color: #fff; box-shadow: 0 2px 12px rgba(0, 0, 0, .18); }
-.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
-.marca { font-family: var(--serif); font-size: 1.4rem; color: var(--ouro); text-decoration: none; white-space: nowrap; }
+/* ---------- topo (glassmorphism) ---------- */
+.topo { position: sticky; top: 0; z-index: 50; color: #fff; background: rgba(61, 14, 22, .62); -webkit-backdrop-filter: blur(16px) saturate(150%); backdrop-filter: blur(16px) saturate(150%); border-bottom: 1px solid rgba(255, 255, 255, .16); box-shadow: 0 6px 24px rgba(0, 0, 0, .18); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .topo { background: var(--vinho); } }
+.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: var(--topo-h); }
+.marca { display: inline-flex; align-items: center; gap: .7rem; font-family: var(--serif); font-size: 1.4rem; color: var(--ouro); text-decoration: none; white-space: nowrap; }
+.marca-img { display: block; width: 116px; height: 50px; object-fit: contain; flex: none; }
+@media (max-width: 380px) { .marca-img { width: 92px; height: 44px; } }
 .menu { display: flex; align-items: center; gap: .3rem; }
 .menu a { text-decoration: none; font-weight: 600; padding: .55rem .9rem; border-radius: 999px; transition: background-color .2s, color .2s; }
-.menu a:hover { background: rgba(255, 255, 255, .12); color: var(--ouro-claro); }
+.menu a:hover { background: rgba(255, 255, 255, .14); color: var(--ouro-claro); }
 .menu-maps { display: none; }
 .topo-acoes { display: flex; align-items: center; gap: .6rem; }
-.menu-btn { display: none; width: 46px; height: 46px; border: 2px solid rgba(255, 255, 255, .5); border-radius: 12px; background: transparent; color: #fff; cursor: pointer; align-items: center; justify-content: center; }
+.menu-btn { display: none; width: 46px; height: 46px; border: 1px solid rgba(255, 255, 255, .45); border-radius: 12px; background: rgba(255, 255, 255, .08); color: #fff; cursor: pointer; align-items: center; justify-content: center; }
 .menu-btn:hover { border-color: var(--ouro); color: var(--ouro); }
 @media (max-width: 800px) {
   .menu-btn { display: inline-flex; }
-  .menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: var(--vinho); padding: .5rem 1.25rem 1.1rem; border-top: 1px solid rgba(255, 255, 255, .15); box-shadow: 0 14px 24px rgba(0, 0, 0, .25); }
+  .menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: rgba(61, 14, 22, .92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); padding: .5rem 1.25rem 1.1rem; border-top: 1px solid rgba(255, 255, 255, .15); box-shadow: 0 14px 24px rgba(0, 0, 0, .25); }
   .menu.aberto { display: flex; }
   .menu a { padding: .9rem .6rem; border-radius: 8px; font-size: 1.1rem; }
   .menu-maps { display: block; }
@@ -109,36 +114,55 @@ a { color: inherit; }
 
 /* ---------- botões ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 50px; padding: .75rem 1.5rem; border-radius: 999px; font-weight: 700; font-size: 1rem; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, .22); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, .24); }
 .btn:active { transform: translateY(0); box-shadow: none; }
 .btn-sm { min-height: 42px; padding: .45rem 1.15rem; font-size: .95rem; }
-.btn-ouro { background: var(--ouro); color: var(--vinho-fundo); }
+.btn-ouro { background: linear-gradient(180deg, var(--ouro-claro), var(--ouro)); color: var(--vinho-fundo); }
 .btn-ouro:hover { background: var(--ouro-claro); }
-.btn-zap { background: var(--zap); color: #fff; }
-.btn-zap:hover { background: var(--zap-escuro); }
-.btn-linha { border-color: rgba(255, 255, 255, .85); color: #fff; }
-.btn-linha:hover { background: rgba(255, 255, 255, .16); border-color: #fff; }
+.btn-zap { background: linear-gradient(180deg, var(--ouro-claro), var(--ouro)); color: var(--vinho-fundo); }
+.btn-zap:hover { background: var(--ouro-claro); }
+.zap-ico { display: grid; place-items: center; width: 32px; height: 32px; margin-left: -.55rem; border-radius: 50%; background: #fff; color: var(--zap-escuro); flex: none; }
+.zap-ico .icone { width: 18px; height: 18px; stroke-width: 2.2; }
+.btn-linha { border-color: rgba(255, 255, 255, .85); color: #fff; background: rgba(255, 255, 255, .06); }
+.btn-linha:hover { background: rgba(255, 255, 255, .18); border-color: #fff; }
+.btn-contorno { border-color: var(--vinho); color: var(--vinho); background: transparent; }
+.btn-contorno:hover { background: var(--vinho); color: #fff; border-color: var(--vinho); }
 .acoes { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+
+/* ---------- selos / chips ---------- */
+.chip { display: inline-flex; align-items: center; gap: .35rem; padding: .28rem .75rem; border-radius: 999px; font-size: .82rem; font-weight: 700; line-height: 1.3; white-space: nowrap; }
+.chip-verde { background: #dcfce7; color: #14532d; }
+.chip-ouro { background: #fff1cc; color: #6b4300; }
+.chip-vinho { background: #f6dfe3; color: var(--vinho); }
+.chip-mini { font-size: .74rem; padding: .15rem .55rem; margin-left: .4rem; vertical-align: middle; }
 
 /* ---------- imagens ---------- */
 .foto-box { position: relative; overflow: hidden; margin: 0; background: var(--tom); border-radius: var(--raio); }
 .foto-box img, .hero > img, .hero > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .foto-box img { transition: transform .5s ease; }
 .foto-fachada img { object-position: 30% 50%; }
-.foto-quad img { object-position: 50% 60%; }
-.foto-larga img { object-position: 50% 65%; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; min-height: min(84vh, 760px); display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: var(--vinho-fundo); }
+.hero { position: relative; min-height: min(90vh, 820px); margin-top: calc(-1 * var(--topo-h)); padding-top: var(--topo-h); display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: var(--vinho-fundo); }
 .hero > img, .hero > video { object-position: 50% 55%; }
-.hero-veu { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .95) 0%, rgba(61, 14, 22, .7) 40%, rgba(61, 14, 22, .2) 100%); }
+.hero-veu { position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .96) 0%, rgba(61, 14, 22, .7) 42%, rgba(61, 14, 22, .28) 100%), linear-gradient(to right, rgba(61, 14, 22, .55), transparent 60%); }
 .hero-txt { position: relative; padding-block: 4rem 3.5rem; }
-.hero h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); max-width: 16ch; text-shadow: 0 2px 18px rgba(0, 0, 0, .35); }
-.hero-sub { font-size: 1.25rem; margin-top: 1.1rem; max-width: 46ch; }
-.selos { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
-.selos li { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .4); font-weight: 600; font-size: .98rem; backdrop-filter: blur(4px); }
-.selos .icone { color: var(--ouro); }
-@media (max-width: 600px) { .hero { min-height: 88vh; } .hero > img, .hero > video { object-position: 38% 50%; } .hero-txt { padding-block: 3rem 2.5rem; } }
+.hero h1 { font-size: clamp(2.3rem, 6vw, 4.3rem); max-width: 16ch; text-shadow: 0 2px 20px rgba(0, 0, 0, .4); }
+.hero-sub { font-size: 1.25rem; margin-top: 1.1rem; max-width: 46ch; text-shadow: 0 1px 12px rgba(0, 0, 0, .35); }
+
+.aberto { display: inline-flex; align-items: center; gap: .65rem; margin: 0 0 1.3rem; padding: .5rem 1.1rem .5rem .9rem; border-radius: 999px; font-weight: 700; font-size: .98rem; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .42); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 6px 20px rgba(0, 0, 0, .25); max-width: none; }
+.aberto-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--ouro); flex: none; }
+.aberto[data-estado="aberto"] .aberto-dot { background: #2ee26b; animation: pulso-dot 1.8s ease-out infinite; }
+@keyframes pulso-dot { 0% { box-shadow: 0 0 0 0 rgba(46, 226, 107, .7); } 80%, 100% { box-shadow: 0 0 0 10px rgba(46, 226, 107, 0); } }
+
+.hero-selos { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1.6rem 0 0; padding: 0; list-style: none; }
+.hero-selos li { display: flex; align-items: center; gap: .8rem; padding: .65rem 1.1rem .65rem .7rem; border-radius: 18px; background: rgba(255, 255, 255, .13); border: 1px solid rgba(255, 255, 255, .38); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 10px 28px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .25); }
+.selo-ico { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(180deg, var(--ouro-claro), var(--ouro)); color: var(--vinho-fundo); flex: none; }
+.selo-ico .icone { width: 22px; height: 22px; }
+.selo-rot { display: block; font-size: .82rem; font-weight: 600; opacity: .88; line-height: 1.2; }
+.selo-val { display: block; font-weight: 700; line-height: 1.3; }
+@media (min-width: 1020px) { .hero-selos { position: absolute; right: 0; bottom: 3.5rem; flex-direction: column; margin: 0; width: 300px; } }
+@media (max-width: 600px) { .hero { min-height: 92vh; } .hero > img, .hero > video { object-position: 38% 50%; } .hero-txt { padding-block: 3rem 2.5rem; } .hero-selos li { width: 100%; } }
 
 /* ---------- toldo: repete o letreiro da fachada ---------- */
 .toldo { background: var(--vinho); color: var(--ouro); display: flex; justify-content: space-around; gap: 2rem; padding: .95rem 1.25rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; overflow: hidden; border-block: 3px solid var(--ouro); }
@@ -154,34 +178,42 @@ a { color: inherit; }
 @media (max-width: 860px) { .duas { grid-template-columns: 1fr; } }
 .texto h2 { margin-bottom: 1.3rem; }
 .foto-fachada { aspect-ratio: 4 / 3; box-shadow: var(--sombra-forte); }
+.foto-fachada::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .35), transparent 50%); pointer-events: none; }
 
 /* ---------- resumo (informações rápidas) ---------- */
 .resumo { padding-block: clamp(2.5rem, 6vw, 4rem); }
-.resumo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.resumo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin: 0; padding: 0; list-style: none; }
 @media (max-width: 980px) { .resumo-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .resumo-grid { grid-template-columns: 1fr; } }
-.info { display: flex; gap: 1rem; align-items: flex-start; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); padding: 1.3rem 1.2rem; box-shadow: var(--sombra); }
-.info-ico { width: 50px; height: 50px; border-radius: 50%; background: var(--vinho); color: var(--ouro); display: grid; place-items: center; flex: none; }
+.info { position: relative; overflow: hidden; display: flex; gap: 1rem; align-items: flex-start; background: linear-gradient(180deg, #fff, #fffaf1); border: 1px solid var(--linha); border-radius: var(--raio); padding: 1.4rem 1.25rem 1.5rem; box-shadow: var(--sombra); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+.info::after { content: ""; position: absolute; left: 0; bottom: 0; height: 4px; width: 0; background: linear-gradient(90deg, var(--ouro), var(--ouro-claro)); transition: width .4s ease; }
+.info:hover { transform: translateY(-6px); box-shadow: var(--sombra-forte); border-color: rgba(240, 174, 27, .7); }
+.info:hover::after { width: 100%; }
+.info-ico { width: 52px; height: 52px; border-radius: 50%; background: var(--vinho); color: var(--ouro); display: grid; place-items: center; flex: none; box-shadow: 0 6px 14px rgba(107, 26, 38, .3); transition: transform .3s ease, background-color .3s ease, color .3s ease; }
 .info-ico .icone { width: 26px; height: 26px; }
+.info:hover .info-ico { transform: scale(1.1) rotate(-6deg); background: var(--ouro); color: var(--vinho); }
 .info-rot { display: block; font-size: .92rem; font-weight: 700; color: var(--suave); margin-bottom: .15rem; }
 .info-val { display: block; font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; color: var(--vinho); }
 .info-obs { display: block; font-size: .92rem; color: var(--suave); margin-top: .25rem; }
 
-/* ---------- cardápio ---------- */
-.cardapio-fotos { display: grid; grid-template-columns: 2fr 3fr; gap: 1rem; margin-top: 2rem; }
-.foto-quad { aspect-ratio: 4 / 3; box-shadow: var(--sombra); }
-.foto-larga { min-height: 280px; box-shadow: var(--sombra); }
-@media (max-width: 860px) { .cardapio-fotos { grid-template-columns: 1fr; } .foto-larga { aspect-ratio: 16 / 9; min-height: 0; } }
-.grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
-@media (max-width: 860px) { .grupos { grid-template-columns: 1fr; } }
-.grupo { background: var(--branco); border: 1px solid var(--linha); border-top: 5px solid var(--ouro); border-radius: var(--raio); padding: 1.4rem 1.4rem 1.2rem; box-shadow: var(--sombra); transition: transform .25s ease, box-shadow .25s ease; }
-.grupo:hover { transform: translateY(-4px); box-shadow: var(--sombra-forte); }
-.grupo ul { list-style: none; margin: .9rem 0 0; padding: 0; }
-.grupo li { position: relative; padding: .5rem 0 .5rem 1.7rem; border-bottom: 1px solid var(--linha); }
-.grupo li:last-child { border-bottom: 0; }
-.grupo li::before { content: ""; position: absolute; left: .15rem; top: 1.05rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ouro); box-shadow: 0 0 0 3px rgba(240, 174, 27, .25); }
-.nota-preco { margin-top: 2rem; padding: 1rem 1.3rem; background: var(--branco); border-left: 5px solid var(--vinho); border-radius: 0 var(--raio) var(--raio) 0; box-shadow: var(--sombra); max-width: none; }
-.nota-preco strong { color: var(--vinho); }
+/* ---------- cardápio: cards especiais ---------- */
+.pratos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin: 0; padding: 0; }
+@media (max-width: 960px) { .pratos { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; } }
+.prato-card { display: flex; flex-direction: column; overflow: hidden; background: linear-gradient(180deg, #fff 0%, #fff8ec 100%); border: 1px solid var(--linha); border-radius: 20px; box-shadow: var(--sombra); transition: transform .3s ease, box-shadow .3s ease; }
+.prato-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-forte); }
+.prato-foto { position: relative; aspect-ratio: 16 / 10; overflow: hidden; margin: 0; background: var(--tom); }
+.prato-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.prato-card:hover .prato-foto img { transform: scale(1.06); }
+.prato-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .55) 0%, rgba(61, 14, 22, 0) 55%); pointer-events: none; }
+.prato-foto .chip { position: absolute; left: .9rem; bottom: .9rem; z-index: 1; box-shadow: 0 4px 12px rgba(0, 0, 0, .25); }
+.prato-corpo { padding: 1.3rem 1.4rem 1.4rem; border-top: 4px solid var(--ouro); }
+.prato-corpo ul { list-style: none; margin: .9rem 0 0; padding: 0; }
+.prato-corpo li { position: relative; padding: .55rem 0 .55rem 1.7rem; border-bottom: 1px dashed var(--linha); }
+.prato-corpo li:last-child { border-bottom: 0; }
+.prato-corpo li::before { content: ""; position: absolute; left: .15rem; top: 1.12rem; width: 10px; height: 10px; border-radius: 50%; background: var(--ouro); box-shadow: 0 0 0 3px rgba(240, 174, 27, .25); }
+.faixa-preco { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .5rem .8rem; margin: 2.2rem auto 0; padding: 1.1rem 1.5rem; max-width: none; text-align: center; background: linear-gradient(135deg, var(--vinho), var(--vinho-fundo)); color: #fff; border-radius: var(--raio); box-shadow: var(--sombra-forte); font-size: 1.1rem; }
+.faixa-preco .icone { color: var(--ouro); }
+.faixa-preco strong { font-family: var(--serif); font-weight: 400; font-size: 1.4rem; color: var(--ouro); }
 
 /* ---------- galeria ---------- */
 .galeria { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; grid-auto-flow: dense; gap: .9rem; margin-top: 2rem; }
@@ -189,9 +221,9 @@ a { color: inherit; }
 .galeria .destaque { grid-column: span 2; }
 @media (max-width: 860px) { .galeria { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; gap: .7rem; } }
 .foto-btn { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; display: block; }
-.foto-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .45), transparent 45%); opacity: 0; transition: opacity .3s; }
+.foto-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(61, 14, 22, .5), transparent 50%); opacity: 0; transition: opacity .3s; }
 .foto-btn:hover::after, .foto-btn:focus-visible::after { opacity: 1; }
-.foto-btn:hover img { transform: scale(1.06); }
+.foto-btn:hover img { transform: scale(1.07); }
 .foto-btn:focus-visible { outline-offset: -5px; }
 
 .lightbox { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; overflow: visible; }
@@ -201,36 +233,81 @@ a { color: inherit; }
 .lightbox-fechar:hover { background: var(--ouro-claro); }
 .lightbox-legenda { color: #fff; text-align: center; margin: .7rem 0 0; max-width: none; font-size: .98rem; }
 
+/* ---------- avaliações (prova social) ---------- */
+.avaliacoes { position: relative; overflow: hidden; color: #fff; background: radial-gradient(circle at 15% 10%, rgba(240, 174, 27, .16), transparent 45%), linear-gradient(135deg, var(--vinho) 0%, var(--vinho-fundo) 100%); }
+.avaliacoes h2 { color: #fff; }
+.avaliacoes .cabeca h2::after { background: var(--ouro); }
+.avaliacoes .lead { color: rgba(255, 255, 255, .85); }
+.estrelas { display: inline-flex; gap: .15rem; color: var(--ouro); }
+.estrelas svg { width: 1.35rem; height: 1.35rem; fill: currentColor; stroke: currentColor; stroke-width: 1; stroke-linejoin: round; }
+.estrelas .vazia { color: rgba(255, 255, 255, .28); }
+.av-resumo { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem 1.6rem; margin-bottom: 1.8rem; padding: 1.1rem 1.5rem; border-radius: var(--raio); background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.av-nota { font-family: var(--serif); font-size: 3rem; line-height: 1; color: var(--ouro); }
+.av-total { margin: 0; max-width: none; opacity: .9; }
+.av-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin: 0; padding: 0; list-style: none; }
+@media (max-width: 960px) { .av-grid { grid-template-columns: 1fr; max-width: 600px; margin-inline: auto; } }
+.av-card { position: relative; display: flex; flex-direction: column; gap: .9rem; margin: 0; padding: 1.6rem 1.5rem 1.4rem; border-radius: 20px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .26); box-shadow: 0 14px 34px rgba(0, 0, 0, .25); transition: transform .3s ease, border-color .3s ease; }
+.av-card:hover { transform: translateY(-5px); border-color: var(--ouro); }
+.av-card::before { content: "\201C"; position: absolute; top: .2rem; right: 1.1rem; font-family: var(--serif); font-size: 4.5rem; line-height: 1; color: rgba(240, 174, 27, .5); }
+.av-card blockquote { margin: 0; font-size: 1.06rem; line-height: 1.6; }
+.av-card figcaption { margin-top: auto; display: flex; align-items: center; gap: .8rem; }
+.av-inicial { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(180deg, var(--ouro-claro), var(--ouro)); color: var(--vinho-fundo); font-weight: 800; flex: none; }
+.av-nome { display: block; font-weight: 700; }
+.av-quando { display: block; font-size: .88rem; opacity: .8; }
+.av-vazio { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .4rem; padding: clamp(1.8rem, 5vw, 3rem); border-radius: 20px; background: rgba(255, 255, 255, .09); border: 1px solid rgba(255, 255, 255, .28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.av-vazio .info-ico { margin-bottom: .6rem; }
+.av-vazio p { max-width: 46ch; margin-inline: auto; }
+.av-acoes { display: flex; justify-content: center; margin-top: 1.8rem; }
+
 /* ---------- contato ---------- */
-.contato { background: var(--vinho); color: #fff; }
-.contato h2 { color: var(--ouro); margin-bottom: 1rem; }
-.end { font-size: 1.25rem; }
-.infos { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .22); border-radius: var(--raio); padding: 1.6rem; }
-.infos dl { margin: 0 0 1.3rem; }
-.infos dl:last-child { margin-bottom: 0; }
-.infos dt { font-family: var(--serif); color: var(--ouro); font-size: 1.15rem; margin-bottom: .2rem; }
-.infos dd { margin: 0; font-size: 1.08rem; }
-.infos a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
-.infos a:hover { color: var(--ouro-claro); }
+.contato { background: var(--papel); }
+.contato-painel { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(1.75rem, 5vw, 3.5rem); align-items: center; background: linear-gradient(180deg, #fff 0%, #fffaf0 100%); border: 2px solid var(--ouro); border-radius: 24px; box-shadow: 0 0 0 7px rgba(240, 174, 27, .16), var(--sombra-forte); padding: clamp(1.75rem, 5vw, 3.5rem); }
+.contato-texto h2 { font-size: clamp(2.1rem, 5.2vw, 3.3rem); color: var(--vinho); }
+.contato-lead { margin: 1rem 0 0; font-size: 1.15rem; color: var(--suave); }
+.contato address { font-style: normal; margin-top: 1.2rem; font-weight: 600; font-size: 1.1rem; line-height: 1.5; }
+.contato .acoes { margin-top: 1.8rem; }
+.contato-cards { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.ccard { display: flex; align-items: center; gap: 1.1rem; padding: 1.15rem 1.3rem; background: #fff; border-radius: var(--raio); border: 1px solid var(--linha); box-shadow: var(--sombra); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.ccard:hover { border-color: var(--ouro); transform: translateY(-3px); box-shadow: var(--sombra-forte); }
+.ccard-ico { width: 50px; height: 50px; border-radius: 50%; background: var(--vinho); color: var(--ouro); display: grid; place-items: center; flex: none; box-shadow: 0 6px 14px rgba(107, 26, 38, .28); }
+.ccard-ico .icone { width: 24px; height: 24px; }
+.ccard-rot { display: block; font-size: .92rem; font-weight: 700; color: var(--suave); }
+.ccard-val { display: block; font-family: var(--serif); font-size: 1.2rem; line-height: 1.3; color: var(--vinho); }
+a.ccard-val { text-decoration: none; }
+a.ccard-val:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+@media (max-width: 860px) {
+  .contato-painel { grid-template-columns: 1fr; text-align: center; }
+  .contato-lead { margin-inline: auto; }
+  .contato .acoes { justify-content: center; }
+}
+@media (max-width: 520px) { .contato .acoes .btn { width: 100%; } }
 
 /* ---------- rodapé ---------- */
-.rodape { background: var(--vinho-fundo); color: rgba(255, 255, 255, .85); padding-block: 1.8rem; font-size: .96rem; }
-.rodape-in { display: flex; flex-wrap: wrap; gap: .6rem 2rem; justify-content: space-between; align-items: center; }
-.rodape p { margin: 0; max-width: none; }
-.rodape a { text-underline-offset: 3px; }
-.rodape a:hover { color: var(--ouro-claro); }
+.rodape { background: var(--vinho-fundo); color: rgba(255, 255, 255, .85); padding-block: 2.8rem 1.1rem; font-size: .9rem; text-align: center; border-top: 3px solid var(--ouro); }
+.rodape p { margin: 0 auto; max-width: none; }
+@media (max-width: 700px) { .rodape { padding-bottom: calc(.9rem + 4.5rem + env(safe-area-inset-bottom, 0px)); } }
 
-/* ---------- botão flutuante de WhatsApp ---------- */
-.zap-flutuante { position: fixed; right: calc(1rem + env(safe-area-inset-right, 0px)); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 90; display: inline-flex; align-items: center; gap: .6rem; height: 62px; min-width: 62px; padding: 0 1.2rem 0 1rem; border-radius: 999px; background: var(--zap); color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
-.zap-flutuante:hover { background: var(--zap-escuro); transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0, 0, 0, .4); }
-.zap-flutuante .icone { width: 30px; height: 30px; stroke-width: 2; }
-@media (max-width: 700px) { .zap-flutuante { width: 62px; padding: 0; justify-content: center; } .zap-flutuante span { display: none; } }
+/* ---------- botão flutuante de WhatsApp (com pulso) ---------- */
+.zap-flutuante { position: fixed; right: calc(1.25rem + env(safe-area-inset-right, 0px)); bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); z-index: 90; display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; background: var(--branco); color: var(--zap-escuro); border: 3px solid var(--ouro); box-shadow: 0 6px 18px rgba(0, 0, 0, .3), 0 0 0 0 rgba(240, 174, 27, .6); text-decoration: none; animation: brilho-zap 2.6s ease-out infinite; transition: transform .2s ease, background-color .2s ease; }
+.zap-flutuante::before { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 3px solid var(--ouro); opacity: 0; animation: anel-zap 2.6s ease-out infinite; pointer-events: none; }
+.zap-flutuante:hover { transform: translateY(-3px) scale(1.05); background: #fffaf0; }
+.zap-flutuante .icone { width: 28px; height: 28px; stroke-width: 2.2; }
+@keyframes brilho-zap { 0%, 100% { box-shadow: 0 6px 18px rgba(0, 0, 0, .3), 0 0 0 0 rgba(240, 174, 27, .0); } 50% { box-shadow: 0 8px 22px rgba(0, 0, 0, .34), 0 0 22px 4px rgba(240, 174, 27, .55); } }
+@keyframes anel-zap { 0% { transform: scale(1); opacity: .75; } 70%, 100% { transform: scale(1.7); opacity: 0; } }
+
+/* ---------- logo (selo oval com o logotipo) ---------- */
+.logo-selo { position: relative; display: block; margin: 0; aspect-ratio: 2644 / 2124; border-radius: 50%; background: radial-gradient(ellipse at 50% 30%, #8c2435 0%, var(--vinho) 52%, var(--vinho-fundo) 100%); box-shadow: 0 0 0 6px rgba(240, 174, 27, .2), 0 24px 54px rgba(0, 0, 0, .42), inset 0 0 46px rgba(0, 0, 0, .28); }
+.logo-selo::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(115deg, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, 0) 38%); pointer-events: none; }
+.logo-selo img { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(0, 0, 0, .4)); }
+
+.rodape-logo { width: 190px; margin: 0 auto 1.3rem; }
+.rodape-nome { margin: 0 auto .35rem; max-width: none; font-family: var(--serif); font-size: 1.25rem; color: var(--ouro); }
 
 /* ---------- movimento reduzido ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-  .btn:hover, .grupo:hover, .zap-flutuante:hover, .foto-btn:hover img { transform: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
+  .btn:hover, .info:hover, .prato-card:hover, .ccard:hover, .av-card:hover, .zap-flutuante:hover, .foto-btn:hover img, .prato-card:hover .prato-foto img, .info:hover .info-ico, .marca:hover .marca-img { transform: none; }
 }
 </style>
 </head>
@@ -239,12 +316,13 @@ a { color: inherit; }
 
 <header class="topo">
   <div class="wrap topo-in">
-    <a class="marca" href="#inicio" aria-label="Bistrô Du Rei, ir para o início">Bistrô Du Rei</a>
+    <a class="marca" href="#inicio" aria-label="Bistrô Du Rei, ir para o início"><img class="marca-img" src="images/restaurante/logo-bistro-du-rei.png" width="2644" height="2124" alt="Logo do Bistrô Du Rei"></a>
     <nav aria-label="Principal" class="menu" id="menu">
       <a href="#informacoes">Informações</a>
       <a href="#restaurante">O restaurante</a>
       <a href="#cardapio">Cardápio</a>
       <a href="#galeria">Galeria</a>
+      <a href="#avaliacoes">Avaliações</a>
       <a href="#contato">Contato</a>
       <a class="menu-maps" data-maps href="#" target="_blank" rel="noopener noreferrer">Como chegar</a>
     </nav>
@@ -264,25 +342,29 @@ a { color: inherit; }
     </video>
     <div class="hero-veu" aria-hidden="true"></div>
     <div class="wrap hero-txt">
+      <p class="aberto" id="aberto" data-estado="indefinido" role="status" aria-live="polite">
+        <span class="aberto-dot" aria-hidden="true"></span>
+        <span id="aberto-texto">Segunda a sábado, das 11h às 15h</span>
+      </p>
       <h1 id="titulo-hero">Comida caseira para o seu almoço de todo dia</h1>
       <p class="hero-sub">Buffet self-service em Alcântara, São Gonçalo – RJ. Monte o seu prato do jeito que quiser.</p>
-      <ul class="selos" aria-label="Resumo">
-        <li>
-          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
-          <span data-preco>R$ 20,00 a R$ 40,00 por pessoa</span>
-        </li>
-        <li>
-          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <span data-horario>Segunda a sábado, 11h às 15h</span>
-        </li>
-      </ul>
       <div class="acoes">
         <a class="btn btn-zap" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" hidden>
-          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="zap-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
           Chamar no WhatsApp
         </a>
         <a class="btn btn-linha" href="#cardapio">Ver o cardápio</a>
       </div>
+      <ul class="hero-selos" aria-label="Resumo">
+        <li>
+          <span class="selo-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+          <span><span class="selo-rot">Preço médio</span><span class="selo-val" data-preco>R$ 20,00 a R$ 40,00 por pessoa</span></span>
+        </li>
+        <li>
+          <span class="selo-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <span><span class="selo-rot">Horário</span><span class="selo-val" data-horario>Segunda a sábado, 11h às 15h</span></span>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -350,22 +432,53 @@ a { color: inherit; }
         <p class="lead">Itens que aparecem nas fotos do buffet. A seleção do dia pode variar.</p>
       </div>
 
-      <div class="cardapio-fotos">
-        <figure class="foto-box foto-quad">
-          <img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" decoding="async" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão">
-        </figure>
-        <figure class="foto-box foto-larga">
-          <img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" decoding="async" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto">
-        </figure>
+      <div class="pratos">
+        <article class="prato-card">
+          <figure class="prato-foto">
+            <img src="images/restaurante/saladas-buffet.webp" width="704" height="531" loading="lazy" decoding="async" alt="Balcão de saladas com folhas, tomate com cebola, grão-de-bico e salada de macarrão" style="object-position: 50% 60%;">
+            <figcaption class="chip chip-verde">Saladas frescas</figcaption>
+          </figure>
+          <div class="prato-corpo">
+            <h3>Saladas</h3>
+            <ul><li>Folhas verdes</li><li>Tomate com cebola</li><li>Grão-de-bico</li><li>Salada de macarrão</li></ul>
+          </div>
+        </article>
+
+        <article class="prato-card">
+          <figure class="prato-foto">
+            <img src="images/restaurante/buffet-self-service.webp" width="1415" height="586" loading="lazy" decoding="async" alt="Buffet self-service com arroz, massas, batata frita, anéis de cebola e muffins de legumes" style="object-position: 40% 60%;">
+            <figcaption class="chip chip-ouro">Para montar o seu prato</figcaption>
+          </figure>
+          <div class="prato-corpo">
+            <h3>Acompanhamentos</h3>
+            <ul><li>Arroz</li><li>Purê</li><li>Batata frita</li><li>Anéis de cebola</li><li>Massas</li></ul>
+          </div>
+        </article>
+
+        <article class="prato-card">
+          <figure class="prato-foto">
+            <img src="images/restaurante/pratos-quentes-buffet.webp" width="1385" height="601" loading="lazy" decoding="async" alt="Cubas de inox com arroz temperado, massa verde, creme com cebolinha e prato gratinado com presunto" style="object-position: 50% 65%;">
+            <figcaption class="chip chip-vinho">Pratos quentes</figcaption>
+          </figure>
+          <div class="prato-corpo">
+            <h3>Pratos</h3>
+            <ul>
+              <li>Muffins de legumes</li>
+              <li>Panqueca de frango <span class="chip chip-verde chip-mini">Opção sem glúten</span></li>
+              <li>Frango</li>
+              <li>Linguiça</li>
+              <!-- Para destacar um prato, acrescente um selo, por exemplo:
+                   <li>Nome do prato <span class="chip chip-ouro chip-mini">Favorito da casa</span></li>
+                   Use somente com a confirmação do proprietário. -->
+            </ul>
+          </div>
+        </article>
       </div>
 
-      <div class="grupos">
-        <article class="grupo"><h3>Saladas</h3><ul><li>Folhas verdes</li><li>Tomate com cebola</li><li>Grão-de-bico</li><li>Salada de macarrão</li></ul></article>
-        <article class="grupo"><h3>Acompanhamentos</h3><ul><li>Arroz</li><li>Purê</li><li>Batata frita</li><li>Anéis de cebola</li><li>Massas</li></ul></article>
-        <article class="grupo"><h3>Pratos</h3><ul><li>Muffins de legumes</li><li>Panqueca de frango (sem glúten)</li><li>Frango</li><li>Linguiça</li></ul></article>
-      </div>
-
-      <p class="nota-preco">Preço médio: <strong data-preco>R$ 20,00 a R$ 40,00 por pessoa</strong>.</p>
+      <p class="faixa-preco">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+        Preço médio: <strong data-preco>R$ 20,00 a R$ 40,00 por pessoa</strong>
+      </p>
     </div>
   </section>
 
@@ -389,40 +502,85 @@ a { color: inherit; }
     </div>
   </section>
 
-  <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
-    <div class="wrap duas contato-in">
-      <div>
-        <h2 id="titulo-contato">Venha almoçar com a gente</h2>
-        <address class="end" style="font-style: normal;">Bistrô Du Rei Cozinha Caseira<br>Alcântara, São Gonçalo – RJ</address>
-        <div class="acoes">
-          <a class="btn btn-zap" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" hidden>
-            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Chamar no WhatsApp
-          </a>
-          <a class="btn btn-ouro" data-maps href="#" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
-        </div>
+  <!-- Avaliações: o conteúdo vem do CONFIG (somente avaliações reais do Google) -->
+  <section class="secao avaliacoes" id="avaliacoes" aria-labelledby="titulo-avaliacoes">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2 id="titulo-avaliacoes">O que os clientes dizem</h2>
+        <p class="lead" id="av-lead">Veja as avaliações de quem já almoçou no Bistrô Du Rei, direto no Google.</p>
       </div>
-      <div class="infos">
-        <dl id="bloco-horarios" hidden><dt>Horário de funcionamento</dt></dl>
-        <dl id="bloco-preco" hidden><dt>Preço médio</dt><dd data-preco></dd></dl>
-        <dl id="bloco-telefone" hidden><dt>Telefone e WhatsApp</dt><dd><a id="link-telefone" href="#"></a></dd></dl>
-        <dl id="bloco-instagram" hidden><dt>Instagram</dt><dd><a id="link-instagram" href="#" target="_blank" rel="noopener noreferrer">Ver perfil</a></dd></dl>
+
+      <div class="av-resumo" id="av-resumo" hidden>
+        <span class="av-nota" id="av-nota"></span>
+        <span id="av-estrelas"></span>
+        <p class="av-total" id="av-total"></p>
+      </div>
+
+      <ul class="av-grid" id="av-lista" hidden></ul>
+
+      <div class="av-vazio" id="av-vazio">
+        <span class="info-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+        <h3 style="color:#fff">Avaliações no Google</h3>
+        <p>Leia o que outros clientes de Alcântara e região escreveram, ou conte como foi o seu almoço.</p>
+      </div>
+
+      <div class="av-acoes">
+        <a class="btn btn-ouro" data-maps href="#" target="_blank" rel="noopener noreferrer">Ver avaliações no Google</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
+    <div class="wrap">
+      <div class="contato-painel">
+        <div class="contato-texto">
+          <h2 id="titulo-contato">Venha almoçar com a gente</h2>
+          <p class="contato-lead">Chame no WhatsApp ou venha direto. O buffet está esperando por você.</p>
+          <address>Bistrô Du Rei Cozinha Caseira<br>Alcântara, São Gonçalo – RJ</address>
+          <div class="acoes">
+            <a class="btn btn-zap" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" hidden>
+              <span class="zap-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              Chamar no WhatsApp
+            </a>
+            <a class="btn btn-contorno" data-maps href="#" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+          </div>
+        </div>
+        <ul class="contato-cards">
+          <li class="ccard" id="bloco-horarios" hidden>
+            <span class="ccard-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <span><span class="ccard-rot">Horário de funcionamento</span><span id="lista-horarios"></span></span>
+          </li>
+          <li class="ccard" id="bloco-preco" hidden>
+            <span class="ccard-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+            <span><span class="ccard-rot">Preço médio</span><span class="ccard-val" data-preco></span></span>
+          </li>
+          <li class="ccard" id="bloco-telefone" hidden>
+            <span class="ccard-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span><span class="ccard-rot">Telefone e WhatsApp</span><a class="ccard-val" id="link-telefone" href="#"></a></span>
+          </li>
+          <li class="ccard" id="bloco-instagram" hidden>
+            <span class="ccard-ico"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span>
+            <span><span class="ccard-rot">Instagram</span><a class="ccard-val" id="link-instagram" href="#" target="_blank" rel="noopener noreferrer">Ver perfil</a></span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="rodape">
-  <div class="wrap rodape-in">
+  <div class="wrap">
+    <div class="logo-selo rodape-logo">
+      <img src="images/restaurante/logo-bistro-du-rei.png" width="2644" height="2124" loading="lazy" decoding="async" alt="Logotipo do Bistrô Du Rei Cozinha Caseira">
+    </div>
+    <p class="rodape-nome">Almoço caseiro, de segunda a sábado</p>
     <p>© <span id="ano"></span> Bistrô Du Rei Cozinha Caseira. Alcântara, São Gonçalo – RJ.</p>
-    <p><a id="rodape-tel" href="#" hidden></a></p>
   </div>
 </footer>
 
 <!-- Botão flutuante de WhatsApp (aparece quando CONFIG.whatsapp estiver preenchido) -->
-<a class="zap-flutuante" id="zap-flutuante" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-label="Chamar o Bistrô Du Rei no WhatsApp" hidden>
+<a class="zap-flutuante" id="zap-flutuante" data-whatsapp href="#" target="_blank" rel="noopener noreferrer" aria-label="Chamar o Bistrô Du Rei no WhatsApp" title="Chamar no WhatsApp" hidden>
   <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-  <span>WhatsApp</span>
 </a>
 
 <!-- Ampliação de fotos da galeria -->
@@ -442,7 +600,14 @@ a { color: inherit; }
     instagram: "",                      // Ex.: "https://www.instagram.com/usuario"
     preco: "R$ 20,00 a R$ 40,00 por pessoa",
     horarios: [{ dias: "Segunda a sábado", horario: "11h às 15h" }],
-    mensagemWhatsapp: "Olá! Vim pelo site e gostaria de saber mais sobre o Bistrô Du Rei."
+    // Usado pelo selo "Aberto hoje". Dias: 0 = domingo ... 6 = sábado. Horário de Brasília.
+    funcionamento: { dias: [1, 2, 3, 4, 5, 6], abre: "11:00", fecha: "15:00" },
+    mensagemWhatsapp: "Olá! Vim pelo site e gostaria de saber mais sobre o Bistrô Du Rei.",
+
+    // AVALIAÇÕES: preencha SOMENTE com dados reais do Google. Vazio = a seção mostra apenas o botão para o Google.
+    nota: 0,                            // Ex.: 4.8 (nota média do Google)
+    totalAvaliacoes: 0,                 // Ex.: 120
+    avaliacoes: []                      // Ex.: [{ nome: "Maria S.", nota: 5, quando: "há 2 semanas", texto: "Texto copiado da avaliação" }]
   };
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -459,13 +624,14 @@ a { color: inherit; }
   if (CONFIG.horarios.length) {
     var resumoHorario = CONFIG.horarios.map(function (h) { return h.dias + ", " + h.horario; }).join(" | ");
     $$("[data-horario]").forEach(function (el) { el.textContent = resumoHorario; });
-    var bloco = $("#bloco-horarios");
+    var lista = $("#lista-horarios");
     CONFIG.horarios.forEach(function (h) {
-      var dd = document.createElement("dd");
-      dd.textContent = h.dias + ": " + h.horario;
-      bloco.appendChild(dd);
+      var linha = document.createElement("span");
+      linha.className = "ccard-val";
+      linha.textContent = h.dias + ", " + h.horario;
+      lista.appendChild(linha);
     });
-    bloco.hidden = false;
+    $("#bloco-horarios").hidden = false;
   }
 
   if (CONFIG.whatsapp) {
@@ -479,10 +645,6 @@ a { color: inherit; }
     t.textContent = CONFIG.telefone;
     t.href = tel;
     $("#bloco-telefone").hidden = false;
-    var rt = $("#rodape-tel");
-    rt.textContent = "Telefone: " + CONFIG.telefone;
-    rt.href = tel;
-    rt.hidden = false;
   }
 
   if (CONFIG.instagram) {
@@ -490,7 +652,100 @@ a { color: inherit; }
     $("#bloco-instagram").hidden = false;
   }
 
-  // Menu no celular
+  // ---- Selo "Aberto hoje" (calculado com o horário de Brasília) ----
+  (function () {
+    var f = CONFIG.funcionamento, box = $("#aberto"), txt = $("#aberto-texto");
+    if (!f || !box || !window.Intl || !Intl.DateTimeFormat) { return; }
+    var nomes = [
+      { n: "domingo", p: "no" }, { n: "segunda", p: "na" }, { n: "terça", p: "na" },
+      { n: "quarta", p: "na" }, { n: "quinta", p: "na" }, { n: "sexta", p: "na" }, { n: "sábado", p: "no" }
+    ];
+    function mins(hhmm) { var p = hhmm.split(":"); return parseInt(p[0], 10) * 60 + parseInt(p[1] || "0", 10); }
+    function hora(hhmm) { var p = hhmm.split(":"), m = parseInt(p[1] || "0", 10); return parseInt(p[0], 10) + "h" + (m ? (m < 10 ? "0" + m : m) : ""); }
+    var abre = mins(f.abre), fecha = mins(f.fecha);
+
+    function agora() {
+      var partes = new Intl.DateTimeFormat("en-US", { timeZone: "America/Sao_Paulo", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date());
+      var o = {};
+      partes.forEach(function (p) { o[p.type] = p.value; });
+      var dia = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(o.weekday);
+      return { dia: dia, min: (parseInt(o.hour, 10) % 24) * 60 + parseInt(o.minute, 10) };
+    }
+    function proximoDia(dia) {
+      for (var i = 1; i <= 7; i++) {
+        var d = (dia + i) % 7;
+        if (f.dias.indexOf(d) !== -1) { return { d: d, depoisDeAmanha: i > 1, amanha: i === 1 }; }
+      }
+      return null;
+    }
+    function atualizar() {
+      var a = agora(), hoje = f.dias.indexOf(a.dia) !== -1, estado, msg;
+      if (a.dia < 0) { return; }
+      if (hoje && a.min >= abre && a.min < fecha) {
+        estado = "aberto"; msg = "Aberto hoje das " + hora(f.abre) + " às " + hora(f.fecha);
+      } else if (hoje && a.min < abre) {
+        estado = "fechado"; msg = "Hoje abrimos às " + hora(f.abre);
+      } else {
+        var prox = proximoDia(a.dia);
+        estado = "fechado";
+        if (!prox) { msg = "Consulte nossos horários"; }
+        else if (prox.amanha) { msg = (hoje ? "Fechado agora. " : "Fechado hoje. ") + "Abrimos amanhã às " + hora(f.abre); }
+        else { msg = (hoje ? "Fechado agora. " : "Fechado hoje. ") + "Abrimos " + nomes[prox.d].p + " " + nomes[prox.d].n + " às " + hora(f.abre); }
+      }
+      box.setAttribute("data-estado", estado);
+      txt.textContent = msg;
+    }
+    atualizar();
+    setInterval(atualizar, 60000);
+  })();
+
+  // ---- Avaliações (somente dados reais do CONFIG) ----
+  (function () {
+    var estrelaSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+    function estrelas(nota) {
+      var n = Math.max(0, Math.min(5, Math.round(nota))), span = document.createElement("span");
+      span.className = "estrelas";
+      span.setAttribute("role", "img");
+      span.setAttribute("aria-label", "Nota " + n + " de 5");
+      for (var i = 0; i < 5; i++) {
+        var s = document.createElement("span");
+        s.innerHTML = estrelaSvg;
+        if (i >= n) { s.className = "vazia"; }
+        span.appendChild(s);
+      }
+      return span;
+    }
+    var temNota = CONFIG.nota > 0, itens = CONFIG.avaliacoes || [];
+    if (temNota) {
+      $("#av-nota").textContent = String(CONFIG.nota).replace(".", ",");
+      $("#av-estrelas").appendChild(estrelas(CONFIG.nota));
+      $("#av-total").textContent = CONFIG.totalAvaliacoes ? "Nota média em " + CONFIG.totalAvaliacoes + " avaliações no Google" : "Nota média no Google";
+      $("#av-resumo").hidden = false;
+    }
+    if (itens.length) {
+      var ul = $("#av-lista");
+      itens.forEach(function (a) {
+        var li = document.createElement("li"), fig = document.createElement("figure"), bq = document.createElement("blockquote"), cap = document.createElement("figcaption");
+        fig.className = "av-card";
+        bq.textContent = a.texto;
+        var ini = document.createElement("span");
+        ini.className = "av-inicial"; ini.setAttribute("aria-hidden", "true");
+        ini.textContent = (a.nome || "?").charAt(0).toUpperCase();
+        var quem = document.createElement("span"), nome = document.createElement("span");
+        nome.className = "av-nome"; nome.textContent = a.nome;
+        quem.appendChild(nome);
+        if (a.quando) { var q = document.createElement("span"); q.className = "av-quando"; q.textContent = a.quando; quem.appendChild(q); }
+        cap.appendChild(ini); cap.appendChild(quem);
+        fig.appendChild(estrelas(a.nota || 5)); fig.appendChild(bq); fig.appendChild(cap);
+        li.appendChild(fig); ul.appendChild(li);
+      });
+      ul.hidden = false;
+      $("#av-vazio").hidden = true;
+      $("#av-lead").textContent = "Avaliações de clientes publicadas no Google.";
+    }
+  })();
+
+  // ---- Menu no celular ----
   var menu = $("#menu"), menuBtn = $("#menu-btn");
   function fecharMenu() { menu.classList.remove("aberto"); menuBtn.setAttribute("aria-expanded", "false"); menuBtn.setAttribute("aria-label", "Abrir menu"); }
   menuBtn.addEventListener("click", function () {
@@ -501,14 +756,14 @@ a { color: inherit; }
   $$("a", menu).forEach(function (a) { a.addEventListener("click", fecharMenu); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") fecharMenu(); });
 
-  // Vídeo do hero: respeita quem prefere menos movimento (mostra só a foto)
+  // ---- Vídeo do hero: respeita quem prefere menos movimento (mostra só a foto) ----
   var video = $(".hero-video");
   if (video && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     video.removeAttribute("autoplay");
     video.pause();
   }
 
-  // Galeria: ampliar foto
+  // ---- Galeria: ampliar foto ----
   var lb = $("#lightbox"), lbImg = $("#lightbox-img"), lbLegenda = $("#lightbox-legenda");
   $$(".foto-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
